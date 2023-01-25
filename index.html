@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        main{
+            display: flex;
+            height: 100vh;
+            width: 100%;
+            padding: 10px;
+        }
+        section {
+            width: 450px;
+            padding: 20px;
+            height: fit-content;
+            background-color: rgb(230, 229, 229);
+            color: black;
+            border-radius: 10px;
+            border: 1px solid black;
+            margin: auto;
+           
+        }
+
+        input {
+            width: 300px;
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+            border: 2px solid rgb(46, 54, 139);
+            outline: none;
+            border-radius: 10px;
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+        }
+
+        .but {
+            width: 100px;
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid rgb(0, 0, 0);
+            background-color: rgb(72, 59, 212);
+            color: white;
+            font-size: 20px;
+            font-weight: bolder;
+        }
+
+        p {
+            width: 100%;
+            height: fit-content;
+            padding: 20px;
+            
+        }
+        .pp{
+            max-width: 150px;
+            max-height: fit-content;
+            margin: 0;
+            
+
+        }
+
+        .youandme {
+            width: inherit;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bolder;
+            background-color: rgb(255, 255, 255);
+            margin: 5px;
+            border-radius: 20px;
+            color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+        }
+        
+        .delete{
+            padding: 10px 30px;
+            background-color: rgb(34, 0, 255);
+            color: white;
+            border-radius: 10px;
+            border: none;
+        }
+
+        aside {
+            text-align: center;
+            margin: 10px;
+            color: rgb(71, 71, 255);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <section>
+            <aside>TO DO LIST</aside>
+            <input type="text" id="input">
+            <button class="but" onclick="add()">click</button>
+            <div id="show"></div>
+
+        </section>
+    </main>
+</body>
+
+</html>
+
+<script>
+
+    let input = document.getElementById("input")
+    let list = []
+    let show = document.getElementById("show")
+
+
+    function add() {
+        if (input.value == "") {
+            alert("input your task")
+        }
+
+        else{
+            list.push(input.value);
+        console.log(list);
+        list.slice(-1).map((abdullahi) =>
+            show.innerHTML += `<div   class="youandme"> <p class="pp">${abdullahi} </p>  <button class="delete" id="delete"> delete</button> </div> `
+        )
+        let newtask=document.querySelectorAll(".delete");
+            for (let index = 0; index < newtask.length; index++) {
+                newtask[index].onclick=function(){
+                    this.parentNode.remove();
+                }
+                
+            }
+
+
+        }
+
+        input.value=""
+
+
+    }
+
+
+
+
+</script>
